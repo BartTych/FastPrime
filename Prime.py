@@ -29,7 +29,8 @@ class BasicOperations:
 
         del A
         del D
-        A = BasicOperations.__translate_bool_to_int_np_with_shift(B, start)
+        #A = BasicOperations.__translate_bool_to_int_np_with_shift(B, start)
+        A = BasicOperations.__translate_bool_to_int_comp_list_with_shift(B,start)
         del B
         return A
 
@@ -43,7 +44,7 @@ class BasicOperations:
         try:
             while divisor < k:
                 BasicOperations.__remove_divisor_with_base_matrix(B, divisor, D, divisor_index)
-                print(f"checked divisor of final matrix: {BasicOperations.__get_number_as_readable_str(divisor)}")
+                print(f"checked divisor of secondary matrix: {BasicOperations.__get_number_as_readable_str(divisor)}")
                 divisor, divisor_index = BasicOperations.__find_next_divisor_in_matrix(A, divisor_index)
         except IndexError:
             print("Oops!", sys.exc_info()[0], "occurred.")
@@ -69,7 +70,7 @@ class BasicOperations:
         if rest == 0:
             translation = 0
         else:
-            translation = divisor - rest
+            translation = int(divisor - rest)
         A[translation::divisor] = False
 
     @staticmethod
@@ -92,7 +93,12 @@ class BasicOperations:
 
     @staticmethod
     def __translate_bool_to_int_comp_list(A):
-        matrix = [i for i, n in enumerate(A) if not n]
+        matrix = [i for i, n in enumerate(A) if n]
+        return matrix
+
+    @staticmethod
+    def __translate_bool_to_int_comp_list_with_shift(A,delta):
+        matrix = [i + delta for i, n in enumerate(A) if n]
         return matrix
 
     @staticmethod
@@ -116,7 +122,7 @@ class BasicOperations:
         string = ""
         for i, n in enumerate(a):
             # for every third digit add space apart from last one
-            if i % 3 == 0 and i < len(a) - 1:
+            if i % 3 == 0 and i < len(a):
                 string += ' '
                 string += a[-i - 1]  # reversed order
             else:

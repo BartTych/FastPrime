@@ -7,11 +7,11 @@ StaticMethods = Prime.BasicOperations()
 
 # setup
 
-N = 1 * 10 ** 7
-start = 5 * 10 ** 10
-size = 200
+size_of_base_matrix = 4 * 10 ** 9
+start_of_secondry_matrix = 12 * 10 ** 18
+size_of_secondary_matrix = 1000
 
-type_of_action = 2
+type_of_action = 1
 # 0 - search for primes in range (0, N)
 # N is limited to ~2*10**9 depending on your ram size
 
@@ -28,7 +28,7 @@ display_all_results = 1
 display_largest_primes_found = 1
 how_many = 20
 # 0 - no
-# 1 - yes, set up how many , display all is ignored
+# 1 - yes, set up how many , display all is ignored in that case
 # also applicable for read from pickle action
 
 store_result_as_pickle = 0
@@ -45,13 +45,13 @@ pickle_name = "result"
 beginning = datetime.datetime.now()
 
 
-error_check.check_for_input_errors(N, start, size, type_of_action)
+error_check.check_for_input_errors(size_of_base_matrix, start_of_secondry_matrix, size_of_secondary_matrix, type_of_action)
 
 if type_of_action == 0:
-    A = StaticMethods.calculate_primes_in_range(N)
+    A = StaticMethods.calculate_primes_in_range(size_of_base_matrix)
 
 elif type_of_action == 1:
-    A = StaticMethods.calculate_primes_in_range_with_use_base_matrix(N, start, size)
+    A = StaticMethods.calculate_primes_in_range_with_use_base_matrix(size_of_base_matrix, start_of_secondry_matrix, size_of_secondary_matrix)
 
 else:
     A = StaticMethods.load_pickle(pickle_name)
