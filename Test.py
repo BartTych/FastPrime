@@ -3,7 +3,6 @@ import numpy as np
 import pickle
 import datetime
 
-start = datetime.datetime.now()
 
 
 

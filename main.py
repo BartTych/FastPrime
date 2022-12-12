@@ -7,9 +7,9 @@ StaticMethods = Prime.BasicOperations()
 
 # setup
 
-size_of_base_matrix = 4 * 10 ** 9
-start_of_secondry_matrix = 12 * 10 ** 18
-size_of_secondary_matrix = 1000
+size_of_base_matrix = 4 * 10 ** 7
+start_of_secondry_matrix = 12 * 10 ** 13
+size_of_secondary_matrix = 200
 
 type_of_action = 1
 # 0 - search for primes in range (0, N)
@@ -20,7 +20,7 @@ type_of_action = 1
 
 # 2 - read pickled numbers
 
-display_all_results = 1
+display_all_results = 0
 # 0 - no
 # 1 - yes
 # also applicable if read from pickle

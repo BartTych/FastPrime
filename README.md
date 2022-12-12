@@ -1,7 +1,7 @@
 # PrimeNumbers
 Fast implementation of algorithm for searching prime numbers in defined
-range. Depending on your system ram size it can go up to ~10^20
-with use instructions are in main.py file. 
+range. Depending on your system ram size it can go up to ~10^20.
+Use instructions are in main.py file. 
 
 It is an implementation of Sieve of Eratosthenes, with modifications
 to make it faster and conserve ram. It works in two stages. First stage
